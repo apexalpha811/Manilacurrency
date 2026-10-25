@@ -4,4 +4,5 @@ Static PHP ⇄ USD currency converter. Open `index.html` in a browser (or serve 
 
 - Live rates from Frankfurter (ECB), backup ExchangeRate-API; offline fallback rate
 - Swap direction, 30-day trend chart, quick-reference tables, Peso info
+- Two-way time zone converter (Manila ⇄ Los Angeles by default, 27 cities, DST-aware)
 - No build step or dependencies

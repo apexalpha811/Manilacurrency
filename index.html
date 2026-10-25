@@ -14,7 +14,7 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="#">🇵🇭 Manila<span>Currency</span></a>
-    <nav><a href="#converter">Converter</a><a href="#trend">Trend</a><a href="#table">Quick table</a><a href="#about">About</a></nav>
+    <nav><a href="#converter">Converter</a><a href="#time">Time</a><a href="#trend">Trend</a><a href="#table">Quick table</a><a href="#about">About</a></nav>
   </div>
 </header>
 
@@ -38,6 +38,26 @@
     </div>
     <p id="rateLine" class="rate-line">Loading rate…</p>
     <p id="meta" class="meta"></p>
+  </section>
+
+  <section id="time" class="card">
+    <h2>Time zone converter <small id="timeDiff"></small></h2>
+    <div class="converter">
+      <div class="field">
+        <select id="cityA" aria-label="First city"></select>
+        <input id="timeA" type="datetime-local" aria-label="Time in first city">
+        <span id="infoA" class="tzinfo"></span>
+      </div>
+      <button id="timeSwap" class="swap" type="button" aria-label="Swap cities">⇄</button>
+      <div class="field">
+        <select id="cityB" aria-label="Second city"></select>
+        <input id="timeB" type="datetime-local" aria-label="Time in second city">
+        <span id="infoB" class="tzinfo"></span>
+      </div>
+    </div>
+    <p class="meta">Edit either time: Philippines → other zones, or other zones → Philippines. Daylight saving is handled automatically.
+      <button id="timeNow" class="link" type="button">Use current time</button></p>
+    <table id="worldTable"><caption>Same moment around the world</caption><thead><tr><th>City</th><th>Date &amp; time</th><th>UTC offset</th></tr></thead><tbody></tbody></table>
   </section>
 
   <section id="trend" class="card">
@@ -77,5 +97,6 @@
 
 <footer class="site-footer"><div class="wrap">© <span id="year"></span> ManilaCurrency</div></footer>
 <script src="app.js"></script>
+<script src="time.js"></script>
 </body>
 </html>

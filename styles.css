@@ -27,3 +27,8 @@ th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}th{co
 .prose ul{padding-left:20px;margin:0 0 16px}.prose li{margin:4px 0}
 .site-footer{text-align:center;color:var(--muted);padding:24px 0;font-size:.85rem}
 @media(max-width:600px){.converter{grid-template-columns:1fr}.swap{justify-self:center;transform:rotate(90deg)}.tables{grid-template-columns:1fr}nav a{margin:0 12px 0 0}}
+.field select,.field input[type=datetime-local]{width:100%;border:2px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);font:600 1rem system-ui;padding:10px 12px;margin-bottom:6px}
+.field select:focus,.field input[type=datetime-local]:focus{outline:none;border-color:var(--accent)}
+.tzinfo{display:block;font-size:.8rem;color:var(--muted);margin:0}
+.link{background:none;border:0;color:var(--accent);cursor:pointer;font:inherit;text-decoration:underline;padding:0 0 0 6px}
+#worldTable{margin-top:12px}#worldTable th,#worldTable td{text-align:left}#worldTable tr.hl td{font-weight:700}
