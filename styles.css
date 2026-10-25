@@ -32,3 +32,6 @@ th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}th{co
 .link{background:none;border:0;color:var(--accent);cursor:pointer;font:inherit;text-decoration:underline;padding:0 0 0 6px}
 #worldTable{margin-top:12px}#worldTable th,#worldTable td{text-align:left}#worldTable tr.hl td{font-weight:700}
 .brand small{display:block;font-size:.7rem;font-weight:400;color:#fff;opacity:.85}
+.nowrow{display:block;height:1.6em;line-height:1.6em;margin-bottom:6px}
+.link.nowrow{font-weight:700;text-align:left;padding:0;text-decoration:none;letter-spacing:.03em}.link.nowrow:hover{text-decoration:underline}
+@media(max-width:600px){.spacer{display:none}}

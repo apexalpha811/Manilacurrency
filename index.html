@@ -44,19 +44,20 @@
     <h2>Time zone converter <small id="timeDiff"></small></h2>
     <div class="converter">
       <div class="field">
+        <span class="nowrow spacer" aria-hidden="true"></span>
         <select id="cityA" aria-label="First city"></select>
         <input id="timeA" type="datetime-local" aria-label="Time in first city">
         <span id="infoA" class="tzinfo"></span>
       </div>
       <button id="timeSwap" class="swap" type="button" aria-label="Swap cities">⇄</button>
       <div class="field">
+        <button id="timeNow" class="link nowrow" type="button">USE CURRENT TIME</button>
         <select id="cityB" aria-label="Second city"></select>
         <input id="timeB" type="datetime-local" aria-label="Time in second city">
         <span id="infoB" class="tzinfo"></span>
       </div>
     </div>
-    <p class="meta">Edit either time: Philippines → other zones, or other zones → Philippines. Daylight saving is handled automatically.
-      <button id="timeNow" class="link" type="button">Use current time</button></p>
+    <p class="meta">Edit either time: Philippines → other zones, or other zones → Philippines. Daylight saving is handled automatically.</p>
     <details><summary>Show the same moment in all zones</summary>
     <table id="worldTable"><caption>Same moment around the world</caption><thead><tr><th>City</th><th>Date &amp; time</th><th>UTC offset</th></tr></thead><tbody></tbody></table>
     </details>
