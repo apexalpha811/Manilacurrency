@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manila Currency – PHP ⇄ USD Converter</title>
+<meta name="description" content="Convert Philippine Peso (PHP) to US Dollars (USD) and back with live exchange rates, a 30-day trend chart and a quick-reference table.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#">🇵🇭 Manila<span>Currency</span></a>
+    <nav><a href="#converter">Converter</a><a href="#trend">Trend</a><a href="#table">Quick table</a><a href="#about">About</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Philippine Peso ⇄ US Dollar</h1>
+    <p>Fast, free converter with live mid-market rates.</p>
+  </section>
+
+  <section id="converter" class="card">
+    <div class="converter">
+      <label class="field">
+        <span id="fromLabel">Philippine Peso (PHP)</span>
+        <div class="input"><b id="fromSym">₱</b><input id="amount" type="number" inputmode="decimal" min="0" step="any" value="1000" aria-labelledby="fromLabel"></div>
+      </label>
+      <button id="swap" class="swap" type="button" aria-label="Swap currencies">⇄</button>
+      <label class="field">
+        <span id="toLabel">US Dollar (USD)</span>
+        <div class="input"><b id="toSym">$</b><input id="result" type="text" readonly aria-labelledby="toLabel"></div>
+      </label>
+    </div>
+    <p id="rateLine" class="rate-line">Loading rate…</p>
+    <p id="meta" class="meta"></p>
+  </section>
+
+  <section id="trend" class="card">
+    <h2>30-day trend <small id="trendLabel">USD per 1 PHP</small></h2>
+    <canvas id="chart" height="220" aria-label="30-day exchange rate chart" role="img"></canvas>
+    <p id="trendStats" class="meta"></p>
+  </section>
+
+  <section id="table" class="card">
+    <h2>Quick reference</h2>
+    <div class="tables">
+      <table id="phpTable"><caption>PHP → USD</caption><thead><tr><th>PHP</th><th>USD</th></tr></thead><tbody></tbody></table>
+      <table id="usdTable"><caption>USD → PHP</caption><thead><tr><th>USD</th><th>PHP</th></tr></thead><tbody></tbody></table>
+    </div>
+  </section>
+
+  <section id="about" class="card prose">
+    <h2>About the Philippine Peso</h2>
+    <ul>
+      <li><b>Code / symbol:</b> PHP / ₱ (ISO 4217 code 608)</li>
+      <li><b>Central bank:</b> Bangko Sentral ng Pilipinas (BSP)</li>
+      <li><b>Subunit:</b> 1 peso = 100 centavos (sentimo)</li>
+      <li><b>Coins:</b> 1, 5, 10, 20 pesos (and 1, 5, 25 sentimo coins)</li>
+      <li><b>Banknotes:</b> ₱20, ₱50, ₱100, ₱200, ₱500, ₱1,000</li>
+      <li><b>Regime:</b> Managed floating rate</li>
+    </ul>
+    <h2>Tips for exchanging</h2>
+    <ul>
+      <li>Rates shown are mid-market; banks, airports and remittance centers add a spread, so expect a less favorable rate.</li>
+      <li>Money changers in Manila (e.g. Makati and Ermita) often beat airport and hotel rates.</li>
+      <li>Remittance services and bank fees vary – compare the total received, not just the headline rate.</li>
+      <li>Bring clean, undamaged USD notes; larger denominations usually get a better rate.</li>
+    </ul>
+    <p class="meta">Data: <a href="https://www.frankfurter.app" target="_blank" rel="noopener">Frankfurter</a> (European Central Bank reference rates, updated on working days) with <a href="https://open.er-api.com" target="_blank" rel="noopener">ExchangeRate-API</a> as backup. Informational only, not financial advice.</p>
+  </section>
+</main>
+
+<footer class="site-footer"><div class="wrap">© <span id="year"></span> ManilaCurrency</div></footer>
+<script src="app.js"></script>
+</body>
+</html>
