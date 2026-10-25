@@ -60,7 +60,7 @@
       .filter(function (p) { return p.type === 'timeZoneName'; })[0];
     return n ? n.value : '';
   }
-  function cityName(sel) { return sel.options[sel.selectedIndex].text.split(',')[0]; }
+  function cityName(sel) { return sel.options[sel.selectedIndex].getAttribute('data-name').split(',')[0]; }
 
   function update() {
     var src = active, dst = src === 'A' ? 'B' : 'A';
@@ -78,9 +78,9 @@
     var fmt = function (tz) {
       return new Intl.DateTimeFormat('en-US', { timeZone: tz, weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }).format(new Date(ms));
     };
-    $('worldTable').querySelector('tbody').innerHTML = CITIES.map(function (c) {
-      var hl = (c[1] === tzA || c[1] === tzB) ? ' class="hl"' : '';
-      return '<tr' + hl + '><td>' + c[0] + '</td><td>' + fmt(c[1]) + '</td><td>' + abbr(ms, c[1]) + ' ' + offLabel(ms, c[1]) + '</td></tr>';
+    $('worldTable').querySelector('tbody').innerHTML = LIST.map(function (c) {
+      var hl = (c.tz === tzA || c.tz === tzB) ? ' class="hl"' : '';
+      return '<tr' + hl + '><td>' + c.name + '</td><td>' + fmt(c.tz) + '</td><td>' + abbr(ms, c.tz) + ' ' + offLabel(ms, c.tz) + '</td></tr>';
     }).join('');
   }
 
@@ -89,9 +89,34 @@
     active = 'A'; update();
   }
 
+  // Every IANA zone the browser knows, plus the curated names above, sorted by
+  // current UTC offset. Manila and Los Angeles are pinned to the top.
+  function canon(tz) {
+    try { return new Intl.DateTimeFormat('en-US', { timeZone: tz }).resolvedOptions().timeZone; } catch (e) { return tz; }
+  }
+  function buildList() {
+    var seen = {}, list = [], nowMs = Date.now();
+    CITIES.forEach(function (c) { seen[canon(c[1])] = true; list.push({ name: c[0], tz: c[1] }); });
+    var all = [];
+    try { all = Intl.supportedValuesOf('timeZone'); } catch (e) { /* older browsers: curated list only */ }
+    all.forEach(function (tz) {
+      var k = canon(tz);
+      if (seen[k] || /^(Etc|SystemV)\//.test(tz)) return;
+      seen[k] = true;
+      list.push({ name: tz.split('/').slice(1).join(' / ').replace(/_/g, ' ') || tz, tz: tz });
+    });
+    list.forEach(function (z) { z.off = offsetMs(nowMs, z.tz); });
+    var pinned = list.slice(0, 2), rest = list.slice(2);
+    rest.sort(function (a, b) { return a.off - b.off || (a.name < b.name ? -1 : 1); });
+    return pinned.concat(rest).map(function (z) {
+      return { name: z.name, tz: z.tz, label: z.name + ' (' + offLabel(nowMs, z.tz) + ')' };
+    });
+  }
+  var LIST = buildList();
   ['cityA', 'cityB'].forEach(function (id) {
-    var sel = $(id);
-    sel.innerHTML = CITIES.map(function (c, i) { return '<option value="' + c[1] + '">' + c[0] + '</option>'; }).join('');
+    $(id).innerHTML = LIST.map(function (z) {
+      return '<option value="' + z.tz + '" data-name="' + z.name.replace(/"/g, '&quot;') + '">' + z.label + '</option>';
+    }).join('');
   });
   $('cityA').selectedIndex = 0; // Manila
   $('cityB').selectedIndex = 1; // Los Angeles
