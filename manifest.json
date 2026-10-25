@@ -1,6 +1,6 @@
 {
-  "name": "Manila Currency",
-  "short_name": "ManilaCurrency",
+  "name": "Philippine Currency",
+  "short_name": "PhilippineCurrency",
   "description": "Philippine Peso and US Dollar converter, created by K∆DΞ aka TITAN",
   "start_url": "./",
   "display": "standalone",

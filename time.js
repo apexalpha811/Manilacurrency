@@ -1,7 +1,7 @@
 (function () {
   'use strict';
   var CITIES = [
-    ['Philippines', 'Asia/Manila'], ['Los Angeles, USA', 'America/Los_Angeles'],
+    ['Manila, Philippines', 'Asia/Manila'], ['Los Angeles, USA', 'America/Los_Angeles'],
     ['San Francisco, USA', 'America/Los_Angeles'], ['Seattle, USA', 'America/Los_Angeles'],
     ['Denver, USA', 'America/Denver'], ['Chicago, USA', 'America/Chicago'],
     ['New York, USA', 'America/New_York'], ['Honolulu, USA', 'Pacific/Honolulu'],
@@ -90,7 +90,7 @@
   }
 
   // Every IANA zone the browser knows, plus the curated names above, sorted by
-  // current UTC offset. Philippines and Los Angeles are pinned to the top.
+  // current UTC offset. Manila and Los Angeles are pinned to the top.
   function canon(tz) {
     try { return new Intl.DateTimeFormat('en-US', { timeZone: tz }).resolvedOptions().timeZone; } catch (e) { return tz; }
   }
@@ -118,7 +118,7 @@
       return '<option value="' + z.tz + '" data-name="' + z.name.replace(/"/g, '&quot;') + '">' + z.label + '</option>';
     }).join('');
   });
-  $('cityA').selectedIndex = 0; // Philippines
+  $('cityA').selectedIndex = 0; // Manila
   $('cityB').selectedIndex = 1; // Los Angeles
 
   $('timeA').addEventListener('input', function () { active = 'A'; update(); });
