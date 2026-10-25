@@ -14,7 +14,16 @@
     ['Singapore', 'Asia/Singapore'], ['Hong Kong', 'Asia/Hong_Kong'],
     ['Tokyo, Japan', 'Asia/Tokyo'], ['Seoul, South Korea', 'Asia/Seoul'],
     ['Sydney, Australia', 'Australia/Sydney'], ['Auckland, New Zealand', 'Pacific/Auckland'],
-    ['Johannesburg, South Africa', 'Africa/Johannesburg']
+    ['Johannesburg, South Africa', 'Africa/Johannesburg'],
+    ['Phoenix, USA', 'America/Phoenix'], ['Halifax, Canada', 'America/Halifax'], ['St. John\'s, Canada', 'America/St_Johns'],
+    ['Guam', 'Pacific/Guam'], ['Fiji', 'Pacific/Fiji'], ['Bogotá, Colombia', 'America/Bogota'], ['Lima, Peru', 'America/Lima'],
+    ['Santiago, Chile', 'America/Santiago'], ['Buenos Aires, Argentina', 'America/Argentina/Buenos_Aires'],
+    ['Reykjavik, Iceland', 'Atlantic/Reykjavik'], ['Lisbon, Portugal', 'Europe/Lisbon'], ['Madrid, Spain', 'Europe/Madrid'],
+    ['Rome, Italy', 'Europe/Rome'], ['Athens, Greece', 'Europe/Athens'], ['Istanbul, Turkey', 'Europe/Istanbul'],
+    ['Cairo, Egypt', 'Africa/Cairo'], ['Nairobi, Kenya', 'Africa/Nairobi'], ['Lagos, Nigeria', 'Africa/Lagos'],
+    ['Riyadh, Saudi Arabia', 'Asia/Riyadh'], ['Karachi, Pakistan', 'Asia/Karachi'], ['Dhaka, Bangladesh', 'Asia/Dhaka'],
+    ['Jakarta, Indonesia', 'Asia/Jakarta'], ['Kuala Lumpur, Malaysia', 'Asia/Kuala_Lumpur'], ['Taipei, Taiwan', 'Asia/Taipei'],
+    ['Perth, Australia', 'Australia/Perth'], ['Adelaide, Australia', 'Australia/Adelaide'], ['Brisbane, Australia', 'Australia/Brisbane']
   ];
   var $ = function (id) { return document.getElementById(id); };
   var active = 'A'; // which side the user last edited

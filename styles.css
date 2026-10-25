@@ -32,3 +32,4 @@ th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}th{co
 .tzinfo{display:block;font-size:.8rem;color:var(--muted);margin:0}
 .link{background:none;border:0;color:var(--accent);cursor:pointer;font:inherit;text-decoration:underline;padding:0 0 0 6px}
 #worldTable{margin-top:12px}#worldTable th,#worldTable td{text-align:left}#worldTable tr.hl td{font-weight:700}
+.brand small{display:block;font-size:.7rem;font-weight:400;color:#fff;opacity:.85}
