@@ -13,11 +13,12 @@
   }
   function other() { return state.from === 'PHP' ? 'USD' : 'PHP'; }
 
+  var fromResult = false;
   function render() {
     var to = other(), r = rate(), amt = parseFloat($('amount').value);
     $('fromLabel').textContent = NAME[state.from]; $('toLabel').textContent = NAME[to];
     $('fromSym').textContent = SYM[state.from]; $('toSym').textContent = SYM[to];
-    $('result').value = isFinite(amt) ? fmt(amt * r, 4).replace(/(\.\d\d)0+$/, '$1') : '';
+    if (!fromResult) $('result').value = isFinite(amt) ? String(Math.round(amt * r * 100) / 100) : '';
     $('rateLine').textContent = '1 ' + state.from + ' = ' + fmt(r, 4) + ' ' + to;
     $('meta').textContent = state.live
       ? 'Live rate as of ' + state.date + ' (mid-market).'
@@ -85,9 +86,15 @@
       .catch(function () { render(); });
   }
 
-  $('amount').addEventListener('input', render);
+  $('amount').addEventListener('input', function () { fromResult = false; render(); });
+  // Typing in the lower field converts back into the upper one.
+  $('result').addEventListener('input', function () {
+    var v = parseFloat($('result').value);
+    $('amount').value = isFinite(v) ? Math.round(v / rate() * 100) / 100 : '';
+    fromResult = true; render(); fromResult = false;
+  });
   $('swap').addEventListener('click', function () {
-    var v = parseFloat($('result').value.replace(/,/g, ''));
+    var v = parseFloat($('result').value);
     state.from = other();
     if (isFinite(v)) $('amount').value = Math.round(v * 100) / 100;
     render();
