@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ManilaCurrency – created by K∆DΞ aka TITAN</title>
-<meta name="description" content="Convert Philippine Peso (PHP) to US Dollars (USD) and back with live exchange rates and a quick-reference table.">
+<meta name="description" content="Convert Philippine Peso (PHP) to the 20 most traded currencies, including US Dollars (USD), and back, with live exchange rates and a quick-reference table.">
 <meta name="theme-color" content="#0038a8">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -20,7 +20,7 @@
 
 <main class="wrap">
   <section class="hero">
-    <h1>Philippine Peso ⇄ US Dollar</h1>
+    <h1>Philippine Peso ⇄ World Currencies</h1>
     <p>Fast, free converter with live mid-market rates.</p>
   </section>
 
@@ -28,11 +28,13 @@
     <div class="converter">
       <label class="field">
         <span id="fromLabel">Philippine Peso (PHP)</span>
+        <select id="fromSel" class="cursel" aria-label="Currency" hidden></select>
         <div class="input"><b id="fromSym">₱</b><input id="amount" type="number" inputmode="decimal" min="0" step="any" value="1000" aria-labelledby="fromLabel"></div>
       </label>
       <button id="swap" class="swap" type="button" aria-label="Swap currencies">⇄</button>
       <label class="field">
         <span id="toLabel">US Dollar (USD)</span>
+        <select id="toSel" class="cursel" aria-label="Currency"></select>
         <div class="input"><b id="toSym">$</b><input id="result" type="number" inputmode="decimal" min="0" step="any" aria-labelledby="toLabel"></div>
       </label>
     </div>
@@ -66,8 +68,8 @@
   <section id="table" class="card">
     <h2>Quick reference</h2>
     <div class="tables">
-      <table id="phpTable"><caption>PHP → USD</caption><thead><tr><th>PHP</th><th>USD</th></tr></thead><tbody></tbody></table>
-      <table id="usdTable"><caption>USD → PHP</caption><thead><tr><th>USD</th><th>PHP</th></tr></thead><tbody></tbody></table>
+      <table id="phpTable"><caption></caption><thead><tr><th></th><th></th></tr></thead><tbody></tbody></table>
+      <table id="usdTable"><caption></caption><thead><tr><th></th><th></th></tr></thead><tbody></tbody></table>
     </div>
   </section>
 
