@@ -14,7 +14,7 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="#">🇵🇭 Philippine<span>Currency</span><small>created by K∆DΞ aka TITAN for your convenience</small></a>
-    <nav><a href="#converter">Converter</a><a href="#time">Time</a><a href="#table">Quick table</a><a href="#about">About</a></nav>
+    <nav><a href="#converter">Converter</a><a href="#time">Time</a><a href="#weight">Weight</a><a href="#table">Quick table</a><a href="#about">About</a></nav>
   </div>
 </header>
 
@@ -65,6 +65,23 @@
     </details>
   </section>
 
+  <section id="weight" class="card">
+    <h2>Weight converter <small>kg ⇄ lbs</small></h2>
+    <div class="converter">
+      <label class="field">
+        <span>Kilograms (kg)</span>
+        <div class="input"><b>kg</b><input id="kg" type="number" inputmode="decimal" min="0" step="any" value="1" aria-label="Kilograms"></div>
+      </label>
+      <div class="swap static" aria-hidden="true">⇄</div>
+      <label class="field">
+        <span>Pounds (lbs)</span>
+        <div class="input"><b>lb</b><input id="lbs" type="number" inputmode="decimal" min="0" step="any" aria-label="Pounds"></div>
+      </label>
+    </div>
+    <p id="weightLine" class="rate-line">1 kg = 2.2046 lbs</p>
+    <p class="meta">Type in either box to convert to the other. 1 kg = 2.20462 lb, and 1 lb = 0.45359 kg.</p>
+  </section>
+
   <section id="table" class="card">
     <h2>Quick reference</h2>
     <div class="tables">
@@ -97,5 +114,6 @@
 <footer class="site-footer"><div class="wrap">© <span id="year"></span> PhilippineCurrency · created by K∆DΞ aka TITAN for your convenience</div></footer>
 <script src="app.js"></script>
 <script src="time.js"></script>
+<script src="weight.js"></script>
 </body>
 </html>

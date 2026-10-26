@@ -37,3 +37,4 @@ th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}th{co
 @media(max-width:600px){.spacer{display:none}}
 .cursel{width:100%;border:2px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);font:600 .9rem system-ui;padding:6px 10px;margin-bottom:6px}.cursel:focus{outline:none;border-color:var(--accent)}.cursel[hidden]{display:none}
 [hidden]{display:none!important}.field{min-width:0}
+.swap.static{display:flex;align-items:center;justify-content:center;cursor:default}.swap.static:hover{background:var(--accent)}
